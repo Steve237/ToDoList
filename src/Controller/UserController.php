@@ -14,7 +14,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/users", name="user_list")
+     * @Route("/admin/users", name="user_list")
      */
     public function listAction(UserRepository $repoUser)
     {
@@ -48,14 +48,14 @@ class UserController extends AbstractController
 
             $this->addFlash('success', "L'utilisateur a bien été ajouté.");
 
-            return $this->redirectToRoute('user_list');
+            return $this->redirectToRoute('homepage');
         }
 
         return $this->render('user/create.html.twig', ['form' => $form->createView()]);
     }
 
     /**
-     * @Route("/users/{id}/edit", name="user_edit")
+     * @Route("/admin/users/{id}/edit", name="user_edit")
      */
     public function editAction(User $user, Request $request)
     {
