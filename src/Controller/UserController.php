@@ -57,17 +57,19 @@ class UserController extends AbstractController
     /**
      * @Route("/admin/users/{id}/edit", name="user_edit")
      */
-    public function editAction(User $user, Request $request)
+    public function editAction(User $user, Request $request, EntityManagerInterface $entity, UserPasswordEncoderInterface $encoder)
     {
         $form = $this->createForm(UserType::class, $user);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $password = $this->get('security.password_encoder')->encodePassword($user, $user->getPassword());
-            $user->setPassword($password);
+            
+            $passwordCrypte = $encoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($passwordCrypte);
 
-            $this->getDoctrine()->getManager()->flush();
+            $entity->persist($user);
+            $entity->flush();
 
             $this->addFlash('success', "L'utilisateur a bien été modifié");
 
@@ -76,4 +78,18 @@ class UserController extends AbstractController
 
         return $this->render('user/edit.html.twig', ['form' => $form->createView(), 'user' => $user]);
     }
+
+    /** 
+     * @Route("/admin/users/{id}/delete", name="user_delete")
+    */
+    public function deleteAction(User $user, EntityManagerInterface $entity) {
+        
+        $entity->remove($user);
+        $entity->flush();
+
+        $this->addFlash('success', "L'utilisateur a bien été supprimé.");
+
+        return $this->redirectToRoute('user_list');
+    }
+
 }
