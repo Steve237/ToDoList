@@ -59,16 +59,14 @@
                         <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
                     </form>
                     {% endif %}
-
-
-
+                
+                
                 </div>
             </div>
         </div>
-        
         {% else %}
             <div class="alert alert-warning" role="alert">
-                Il n'y a aucune tache en cours. <a href="{{path('task_create')}}" class="btn btn-warning pull-right">Créer une tâche</a>
+                Il n'y a aucune tache terminée <a href="{{ path('task_create') }}" class="btn btn-warning pull-right">Créer une tâche</a>
             </div>
         {% endfor %}
     </div>
