@@ -52,6 +52,7 @@ class SecurityControllerTest extends WebTestCase
         $client->followRedirect();
         $this->assertSelectorTextContains('h1', "Bienvenue sur Todo List, l'application vous permettant de gérer l'ensemble de vos tâches sans effort !");
 
+        return $client;
     }
 
     //test connexion avec role_admin

@@ -78,6 +78,4 @@ class UserTest extends TestCase
         static::assertEquals($user->eraseCredentials(), null);
     }
 
-
-
 }

@@ -60,15 +60,15 @@ class UserControllerTest extends WebTestCase
         $securityControllerTest = new SecurityControllerTest();
         $client = $securityControllerTest->testLoginWithRoleAdmin();
 
-        $crawler = $client->request('GET', '/users/create');
+        $crawler = $client->request('GET', '/main/users/create');
         $this->assertResponseStatusCodeSame(Response::HTTP_OK);
 
 
         $form = $crawler->selectButton("Ajouter")->form();
-        $form['user[username]'] = 'kinglion988';
+        $form['user[username]'] = 'kinglion199';
         $form['user[password][first]'] = 'Espirito250';
         $form['user[password][second]'] = 'Espirito250';
-        $form['user[email]'] = 'newuser@example995.org';
+        $form['user[email]'] = 'newuser@example199.org';
         $form['user[roles][0]'] = 'ROLE_USER';
         
         $client->submit($form);

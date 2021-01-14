@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Task;
-use AppBundle\Form\TaskType;
+use App\Form\TaskType;
 use App\Repository\TaskRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class TaskController extends AbstractController
 {
     /**
-     * @Route("/open_tasks", name="open_tasks_list")
+     * @Route("/main/open_tasks", name="open_tasks_list")
      */
     public function listAction(TaskRepository $repoTask)
     {
@@ -29,7 +29,7 @@ class TaskController extends AbstractController
     }
 
     /**
-     * @Route("/closed_tasks", name="closed_tasks_list")
+     * @Route("/main/closed_tasks", name="closed_tasks_list")
      */
     public function closedTask(TaskRepository $repoTask)
     {
@@ -46,7 +46,7 @@ class TaskController extends AbstractController
 
     
     /**
-     * @Route("/tasks/create", name="task_create")
+     * @Route("/main/tasks/create", name="task_create")
      */
     public function createAction(Request $request, EntityManagerInterface $entity)
     {
@@ -72,7 +72,7 @@ class TaskController extends AbstractController
     }
 
     /**
-     * @Route("/tasks/{id}/edit", name="task_edit")
+     * @Route("/main/tasks/{id}/edit", name="task_edit")
      */
     public function editAction(Task $task, Request $request, EntityManagerInterface $entity)
     {
@@ -97,7 +97,7 @@ class TaskController extends AbstractController
     }
 
     /**
-     * @Route("/tasks/{id}/toggle", name="task_toggle")
+     * @Route("/main/tasks/{id}/toggle", name="task_toggle")
      */
     public function toggleTaskAction(Task $task, EntityManagerInterface $entity)
     {
@@ -124,7 +124,7 @@ class TaskController extends AbstractController
     }
 
     /**
-     * @Route("/tasks/{id}/delete", name="task_delete")
+     * @Route("/main/tasks/{id}/delete", name="task_delete")
      */
     public function deleteTaskAction(Task $task, EntityManagerInterface $entity)
     {
