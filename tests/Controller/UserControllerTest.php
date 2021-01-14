@@ -65,10 +65,10 @@ class UserControllerTest extends WebTestCase
 
 
         $form = $crawler->selectButton("Ajouter")->form();
-        $form['user[username]'] = 'kinglion199';
-        $form['user[password][first]'] = 'Espirito250';
-        $form['user[password][second]'] = 'Espirito250';
-        $form['user[email]'] = 'newuser@example199.org';
+        $form['user[username]'] = 'king776';
+        $form['user[password][first]'] = 'Espirito257';
+        $form['user[password][second]'] = 'Espirito257';
+        $form['user[email]'] = 'newuser@example154.org';
         $form['user[roles][0]'] = 'ROLE_USER';
         
         $client->submit($form);

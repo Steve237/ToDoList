@@ -97,7 +97,7 @@ class TaskControllerTest extends WebTestCase
         $securityControllerTest = new SecurityControllerTest();
         $client = $securityControllerTest->testLoginWithRoleUser();
 
-        $crawler = $client->request('GET', '/main/tasks/13/edit');
+        $crawler = $client->request('GET', '/main/tasks/12/edit');
         $this->assertResponseStatusCodeSame(Response::HTTP_OK);
 
         $form = $crawler->selectButton('Modifier')->form();
@@ -137,7 +137,7 @@ class TaskControllerTest extends WebTestCase
         $securityControllerTest = new SecurityControllerTest();
         $client = $securityControllerTest->testLoginWithRoleUser();
  
-        $crawler = $client->request('GET', '/main/tasks/28/delete');
+        $crawler = $client->request('GET', '/main/tasks/44/delete');
         $this->assertResponseRedirects();
          
         $crawler = $client->followRedirect();
