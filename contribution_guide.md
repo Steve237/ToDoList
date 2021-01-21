@@ -25,8 +25,7 @@ Vous devez écrire les tests unitaires et fonctionnels via PHPUNIT dans le dossi
 et pour les controllers dans le dossier test/controlleur. Une fois les test rédigés vous pouvez vérifier si ils retournent un résultat correct en exécutant la commande :
 
 ```
-vendor\bin\phpunit --coverage-html web\test-coverage
-
+vendor\bin\phpunit
 
 ```
 
