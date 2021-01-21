@@ -33,8 +33,9 @@ Pour générer le rapport de couverture du code, lancez la commande suivante :
 vendor\bin\phpunit --coverage-html public\test-coverage
 
 ```
- Cela va alors générer des fichiers dans le dossier public/test-coverage, dont le fichier index.html qui indique le taux de couverture, si le total de ce dernier est équivalent
- à 7O% le code est suffisamment couvert
+ 
+ Cela va alors générer des fichiers dans le dossier public/test-coverage, dont le fichier index.html qui indique le taux de couverture, 
+ si le total de ce dernier est équivalent à 7O% le code est suffisamment couvert
 
 ## Faites un commit puis un push de votre branche 
 
@@ -58,8 +59,10 @@ git push origin [branch name]
 
 Faites une pull request vers le master, si votre code est validé, il sera integré au projet par le gérant de ce dernier.
 
-Standards to apply
-Please respect the PSR rule, especially those ones :
+## Les conventions de codage à respecter
+
+Il s'agit de respecter les règles PSR que vous pouvez consulter via les liens suivants:
+
 *   [PSR-1 : Basic Coding Standard](https://gist.github.com/npotier/d5a13245ad9cd2e92fa9dec19baf0e9a)
 *   [PSR-2 : Coding Style Guide](https://gist.github.com/npotier/593b645025173ef8bbb5c59d3fd455fa)
 *   [PSR-4 : Autoloader](https://www.php-fig.org/psr/psr-4/)
