@@ -27,13 +27,15 @@ et pour les controllers dans le dossier test/controlleur. Une fois les test réd
 ```
 vendor\bin\phpunit --coverage-html web\test-coverage
 
+
+```
+
 Pour générer le rapport de couverture du code, lancez la commande suivante : 
 
 ```
 vendor\bin\phpunit --coverage-html public\test-coverage
 
 ```
- 
  Cela va alors générer des fichiers dans le dossier public/test-coverage, dont le fichier index.html qui indique le taux de couverture, 
  si le total de ce dernier est équivalent à 7O% le code est suffisamment couvert
 
