@@ -14,7 +14,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/users", name="user_list")
+     * @Route("/admin/users", name="user_list")
      */
     public function listAction(UserRepository $repoUser)
     {
@@ -30,7 +30,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/users/create", name="user_create")
+     * @Route("/main/users/create", name="user_create")
      */
     public function createAction(Request $request, EntityManagerInterface $entity, UserPasswordEncoderInterface $encoder)
     {
@@ -48,26 +48,28 @@ class UserController extends AbstractController
 
             $this->addFlash('success', "L'utilisateur a bien été ajouté.");
 
-            return $this->redirectToRoute('user_list');
+            return $this->redirectToRoute('homepage');
         }
 
         return $this->render('user/create.html.twig', ['form' => $form->createView()]);
     }
 
     /**
-     * @Route("/users/{id}/edit", name="user_edit")
+     * @Route("/admin/users/{id}/edit", name="user_edit")
      */
-    public function editAction(User $user, Request $request)
+    public function editAction(User $user, Request $request, EntityManagerInterface $entity, UserPasswordEncoderInterface $encoder)
     {
         $form = $this->createForm(UserType::class, $user);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $password = $this->get('security.password_encoder')->encodePassword($user, $user->getPassword());
-            $user->setPassword($password);
+            
+            $passwordCrypte = $encoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($passwordCrypte);
 
-            $this->getDoctrine()->getManager()->flush();
+            $entity->persist($user);
+            $entity->flush();
 
             $this->addFlash('success', "L'utilisateur a bien été modifié");
 
@@ -76,4 +78,18 @@ class UserController extends AbstractController
 
         return $this->render('user/edit.html.twig', ['form' => $form->createView(), 'user' => $user]);
     }
+
+    /** 
+     * @Route("/admin/users/{id}/delete", name="user_delete")
+    */
+    public function deleteAction(User $user, EntityManagerInterface $entity) {
+        
+        $entity->remove($user);
+        $entity->flush();
+
+        $this->addFlash('success', "L'utilisateur a bien été supprimé.");
+
+        return $this->redirectToRoute('user_list');
+    }
+
 }
