@@ -42,6 +42,7 @@ body {
 
 .thumbnail {
     padding: 0;
+    background-color: wheat;
 }
 
 .thumbnail .caption-full {
@@ -75,8 +76,9 @@ footer {
 
 .size-caption {
 
-    border:solid 1px red;
-    padding-bottom:0px;height:250px;
+    padding-bottom:0px;
+    height:250px;
+    width:100%;
 
 }
 
@@ -92,3 +94,10 @@ margin-bottom:5px;
 
 
 }
+
+.button_user {
+
+    margin-left : 15px;
+}
+
+
