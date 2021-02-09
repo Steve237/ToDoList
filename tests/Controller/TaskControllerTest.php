@@ -38,7 +38,7 @@ class TaskControllerTest extends WebTestCase
 
     }
 
-     // test accès à la liste des taches en cours avec le rôle user
+     // test accès à la liste des taches en cours avec le rôle admin
     public function testAccessTasksListWithRoleAdmin()
     {
         $securityControllerTest = new SecurityControllerTest();
@@ -111,7 +111,7 @@ class TaskControllerTest extends WebTestCase
 
     }
 
-    // Edition d'une tâche par un utilisateur simple
+    // Edition d'une tâche par un utilisateur admin
     public function testEditTaskWithRoleAdmin()
     {
         $securityControllerTest = new SecurityControllerTest();
@@ -137,9 +137,8 @@ class TaskControllerTest extends WebTestCase
         $securityControllerTest = new SecurityControllerTest();
         $client = $securityControllerTest->testLoginWithRoleUser();
  
-        $crawler = $client->request('GET', '/main/tasks/44/delete');
+        $crawler = $client->request('GET', '/main/tasks/51/delete');
         $this->assertResponseRedirects();
-         
         $crawler = $client->followRedirect();
         $this->assertResponseStatusCodeSame(Response::HTTP_OK);
         $this->assertSelectorExists('.alert.alert-success');
@@ -166,7 +165,5 @@ class TaskControllerTest extends WebTestCase
 
         $crawler = $client->followRedirect();
         $this->assertResponseStatusCodeSame(Response::HTTP_OK);
-
     }
-
 }

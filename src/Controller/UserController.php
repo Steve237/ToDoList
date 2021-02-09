@@ -30,7 +30,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/main/users/create", name="user_create")
+     * @Route("/users/create", name="user_create")
      */
     public function createAction(Request $request, EntityManagerInterface $entity, UserPasswordEncoderInterface $encoder)
     {
@@ -91,5 +91,4 @@ class UserController extends AbstractController
 
         return $this->redirectToRoute('user_list');
     }
-
 }

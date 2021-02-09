@@ -11,12 +11,9 @@ class SecurityControllerTest extends WebTestCase
     //test accès à la page d'accueil
    public function testDisplayLogin() {
 
-    $client = static::createClient();
-    $client->request('GET', '/login');
-    $this->assertResponseStatusCodeSame(Response::HTTP_OK);
-    $this->assertSelectorTextContains('button', 'Se connecter');
-    $this->assertSelectorNotExists('.alert.alert-danger');
-
+        $client = static::createClient();
+        $client->request('GET', '/');
+        $this->assertResponseStatusCodeSame(Response::HTTP_OK);
     }
 
     //test de connexion avec mauvais identifiants
@@ -43,7 +40,7 @@ class SecurityControllerTest extends WebTestCase
         $client = static::createClient();
         $crawler = $client->request('GET', '/login');
         $form = $crawler->selectButton("Se connecter")->form([
-            '_username' => 'Espirito238',
+            '_username' => 'Steven450',
             '_password' => 'Espirito237'
         ]);
         
