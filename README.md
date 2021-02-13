@@ -20,7 +20,7 @@ composer install
 
 3.Configurer le fichier .env à la racine du projet pour relier le projet à votre base de données et importer la base de données.
 
-D'abord, importez dans votre base données le fichier todolist.sql que vous trouverez à la racine de votre projet, et donnez à la base le nom que vous souhaitez.
+D'abord, importez dans votre base données le fichier todolist.sql que vous trouverez à la racine du projet, et donnez à la base le nom que vous souhaitez.
 
 Ensuite, dans le fichier .env vous devez enregistrez les identifiants de connexion à votre base de données:
 
