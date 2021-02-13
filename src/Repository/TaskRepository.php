@@ -26,8 +26,7 @@ class TaskRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('t')
             ->andWhere('t.isDone = 1')
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
    
 
@@ -36,8 +35,7 @@ class TaskRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('t')
             ->andWhere('t.isDone != 1')
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
 
 }

@@ -16,8 +16,7 @@ class UserControllerTest extends WebTestCase
         $this->assertResponseRedirects();
 
         $crawler = $client->followRedirect();
-        // Test if login field exists
-        $this->assertSelectorTextContains('button', 'Se connecter');
+        $this->assertResponseStatusCodeSame(Response::HTTP_OK);
     }
 
     //test accès à la liste des users avec le role admin
@@ -42,10 +41,10 @@ class UserControllerTest extends WebTestCase
         $this->assertResponseStatusCodeSame(Response::HTTP_OK);
 
         $form = $crawler->selectButton("Modifier")->form();
-        $form['user[username]'] = 'Espirito238';
+        $form['user[username]'] = 'Espirito2956';
         $form['user[password][first]'] = 'Espirito237';
         $form['user[password][second]'] = 'Espirito237';
-        $form['user[email]'] = 'editedUser@example.org';
+        $form['user[email]'] = 'editeduser99@example.org';
         $form['user[roles][0]'] = 'ROLE_USER';
         
         $client->submit($form);
@@ -60,15 +59,15 @@ class UserControllerTest extends WebTestCase
         $securityControllerTest = new SecurityControllerTest();
         $client = $securityControllerTest->testLoginWithRoleAdmin();
 
-        $crawler = $client->request('GET', '/main/users/create');
+        $crawler = $client->request('GET', '/users/create');
         $this->assertResponseStatusCodeSame(Response::HTTP_OK);
 
 
         $form = $crawler->selectButton("Ajouter")->form();
-        $form['user[username]'] = 'king776';
+        $form['user[username]'] = 'kingdukamer932';
         $form['user[password][first]'] = 'Espirito257';
         $form['user[password][second]'] = 'Espirito257';
-        $form['user[email]'] = 'newuser@example154.org';
+        $form['user[email]'] = 'newkamer932@example154.org';
         $form['user[roles][0]'] = 'ROLE_USER';
         
         $client->submit($form);

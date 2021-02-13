@@ -50,7 +50,7 @@
                 </div>
                 
                 {% if (is_granted('ROLE_ADMIN')) %}
-                <a href="{{ path('user_list') }}" class="btn btn-primary">Gestion des utilisateurs</a>
+                <a href="{{ path('user_list') }}" class="btn btn-primary button_user">Gestion des utilisateurs</a>
                 {% endif %}
 
                 {% if not app.user and 'login' != app.request.attributes.get('_route') %}
