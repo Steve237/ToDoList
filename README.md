@@ -1,5 +1,7 @@
 # Projet 8 Openclassroom/To Do List
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/aeb651c7845c4a84be4602db546153db)](https://app.codacy.com/gh/Steve237/ToDoList?utm_source=github.com&utm_medium=referral&utm_content=Steve237/ToDoList&utm_campaign=Badge_Grade)
+
 ## Comment installer le projet en local?
 
 1. Cloner ou télécharger le projet
