@@ -49,5 +49,5 @@ php bin/console symfony server:start
 ```
 L'application sera ensuite accessible via l'url (http://127.0.0.1:8000)
 
-Le badge de qualité que nous avons obtenu sur Codacity est le grade A : 
+Le badge de qualité que nous avons obtenu sur Codacity est le grade B : 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/4017d9fc03f641938dd85e85019f00a2)](https://www.codacy.com/gh/Steve237/ToDoList/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Steve237/ToDoList&amp;utm_campaign=Badge_Grade)
