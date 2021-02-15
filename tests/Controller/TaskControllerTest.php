@@ -16,12 +16,9 @@ class TaskControllerTest extends WebTestCase
         $client = static::createClient();
         $client->request('GET', '/main/open_tasks');
         $this->assertResponseRedirects();
-
-
         $crawler = $client->followRedirect();
         $this->assertResponseStatusCodeSame(Response::HTTP_OK);
 
-        
         // Test if login field exists
         static::assertSame(1, $crawler->filter('input[name="_username"]')->count());
         static::assertSame(1, $crawler->filter('input[name="_password"]')->count());
@@ -137,7 +134,7 @@ class TaskControllerTest extends WebTestCase
         $securityControllerTest = new SecurityControllerTest();
         $client = $securityControllerTest->testLoginWithRoleUser();
  
-        $crawler = $client->request('GET', '/main/tasks/51/delete');
+        $crawler = $client->request('GET', '/main/tasks/59/delete');
         $this->assertResponseRedirects();
         $crawler = $client->followRedirect();
         $this->assertResponseStatusCodeSame(Response::HTTP_OK);
