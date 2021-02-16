@@ -12,7 +12,7 @@ class UserTest extends TestCase
     public function testGetId()
     {
         $user = new User();
-        static::assertEquals($user->getId(), 10);
+        static::assertEquals($user->getId(), null);
     }
 
     public function testGetSetUsername()
