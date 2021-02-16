@@ -37,7 +37,7 @@ class UserControllerTest extends WebTestCase
         $securityControllerTest = new SecurityControllerTest();
         $client = $securityControllerTest->testLoginWithRoleAdmin();
 
-        $crawler = $client->request('GET', '/admin/users/10/edit');
+        $crawler = $client->request('GET', '/admin/users/51/edit');
         $this->assertResponseStatusCodeSame(Response::HTTP_OK);
 
         $form = $crawler->selectButton("Modifier")->form();
@@ -45,7 +45,7 @@ class UserControllerTest extends WebTestCase
         $form['user[password][first]'] = 'Espirito237';
         $form['user[password][second]'] = 'Espirito237';
         $form['user[email]'] = 'editeduser99@example.org';
-        $form['user[roles][0]'] = 'ROLE_USER';
+        $form['user[roles]'] = 'ROLE_USER';
         
         $client->submit($form);
         $this->assertResponseRedirects();
@@ -68,7 +68,7 @@ class UserControllerTest extends WebTestCase
         $form['user[password][first]'] = 'Espirito257';
         $form['user[password][second]'] = 'Espirito257';
         $form['user[email]'] = 'newkamer932@example154.org';
-        $form['user[roles][0]'] = 'ROLE_USER';
+        $form['user[roles]'] = 'ROLE_USER';
         
         $client->submit($form);
         $this->assertResponseRedirects();

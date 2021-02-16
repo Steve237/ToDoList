@@ -16,12 +16,9 @@ class TaskControllerTest extends WebTestCase
         $client = static::createClient();
         $client->request('GET', '/main/open_tasks');
         $this->assertResponseRedirects();
-
-
         $crawler = $client->followRedirect();
         $this->assertResponseStatusCodeSame(Response::HTTP_OK);
 
-        
         // Test if login field exists
         static::assertSame(1, $crawler->filter('input[name="_username"]')->count());
         static::assertSame(1, $crawler->filter('input[name="_password"]')->count());
@@ -97,7 +94,7 @@ class TaskControllerTest extends WebTestCase
         $securityControllerTest = new SecurityControllerTest();
         $client = $securityControllerTest->testLoginWithRoleUser();
 
-        $crawler = $client->request('GET', '/main/tasks/12/edit');
+        $crawler = $client->request('GET', '/main/tasks/84/edit');
         $this->assertResponseStatusCodeSame(Response::HTTP_OK);
 
         $form = $crawler->selectButton('Modifier')->form();
@@ -117,7 +114,7 @@ class TaskControllerTest extends WebTestCase
         $securityControllerTest = new SecurityControllerTest();
         $client = $securityControllerTest->testLoginWithRoleAdmin();
 
-        $crawler = $client->request('GET', '/main/tasks/15/edit');
+        $crawler = $client->request('GET', '/main/tasks/85/edit');
         $this->assertResponseStatusCodeSame(Response::HTTP_OK);
 
         $form = $crawler->selectButton('Modifier')->form();
@@ -137,7 +134,7 @@ class TaskControllerTest extends WebTestCase
         $securityControllerTest = new SecurityControllerTest();
         $client = $securityControllerTest->testLoginWithRoleUser();
  
-        $crawler = $client->request('GET', '/main/tasks/51/delete');
+        $crawler = $client->request('GET', '/main/tasks/84/delete');
         $this->assertResponseRedirects();
         $crawler = $client->followRedirect();
         $this->assertResponseStatusCodeSame(Response::HTTP_OK);
@@ -159,7 +156,7 @@ class TaskControllerTest extends WebTestCase
         $securityControllerTest = new SecurityControllerTest();
         $client = $securityControllerTest->testLoginWithRoleUser();
 
-        $crawler = $client->request('GET', '/main/tasks/20/toggle');
+        $crawler = $client->request('GET', '/main/tasks/85/toggle');
         $this->assertResponseRedirects();
 
 
